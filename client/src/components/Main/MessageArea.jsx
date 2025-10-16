@@ -91,16 +91,75 @@ const MessageArea = ({ selectedGroupId }) => {
 
             {!selectedGroupId ? (
                 // splash / empty state
-                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#e3eefb' }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: 20 }}>
-                        <div>
-                            <img src={splash} alt="splash" style={{ maxWidth: 420, width: '80%', marginBottom: 24 }} />
-                            <h1 style={{ fontSize: 48, marginBottom: 8 }}>Pocket Notes</h1>
-                            <p style={{ color: '#333', maxWidth: 560, margin: '0 auto' }}>Send and receive messages without keeping your phone online. Use Pocket Notes on up to 4 linked devices and 1 mobile phone</p>
+                <div
+                    style={{
+                        flex: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: '#e3eefb',
+                        height: '100vh',
+                        padding: '40px 20px',
+                    }}
+                >
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            maxWidth: 600,
+                            textAlign: 'center',
+                        }}
+                    >
+                        <div style={{ flex: 1, marginBottom: 90 }}>
+                            <img
+                                src={splash}
+                                alt="splash"
+                                style={{
+                                    maxWidth: 450,
+                                    width: '100%',
+                                    marginBottom: 32,
+                                }}
+                            />
+                            <h1
+                                style={{
+                                    fontSize: 48,
+                                    fontWeight: 600,
+                                    marginBottom: 12,
+                                    color: '#000000',
+                                }}
+                            >
+                                Pocket Notes
+                            </h1>
+                            <p
+                                style={{
+                                    color: '#333',
+                                    fontSize: 20,
+                                    lineHeight: 1.6,
+                                    maxWidth: 560,
+                                    margin: '0 auto',
+                                }}
+                            >
+                                Send and receive messages without keeping your phone online. Use Pocket Notes on up to 4 linked devices and 1 mobile phone
+                            </p>
                         </div>
 
-                        <div style={{ marginTop: 32, color: '#666' }}>
-                            <span role="img" aria-label="lock"><LockKeyhole /></span> end-to-end encrypted
+                        <div
+                            style={{
+                                position: 'absolute',
+                                bottom: 24,
+                                color: '#292929',
+                                fontSize: 16,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 8,
+                            }}
+                        >
+                            <span role="img" aria-label="lock">
+                                <LockKeyhole />
+                            </span>
+                            <span>end-to-end encrypted</span>
                         </div>
                     </div>
                 </div>
@@ -117,6 +176,8 @@ const MessageArea = ({ selectedGroupId }) => {
                             padding: 20,
                             background: '#DAE5F5',
                             overflowY: 'auto',
+                            wordWrap: 'break-word',       // ✅ makes sure text wraps
+                            overflowX: 'hidden',          // ✅ prevents horizontal scroll
                         }}
                     >
                         {notes.map((n) => (
@@ -128,11 +189,14 @@ const MessageArea = ({ selectedGroupId }) => {
                                     borderRadius: 8,
                                     boxShadow: '0 4px 10px rgba(0,0,0,0.08)',
                                     marginBottom: 16,
+                                    maxWidth: '100%',          // ✅ ensures card never exceeds container
+                                    overflowWrap: 'break-word', // ✅ ensures long text breaks properly
                                 }}
                             >
                                 <div
                                     style={{
-                                        whiteSpace: 'pre-wrap',
+                                        whiteSpace: 'pre-wrap',     // ✅ respects line breaks in content
+                                        wordBreak: 'break-word',    // ✅ breaks long continuous text
                                         color: '#000000',
                                         fontSize: 16,
                                         lineHeight: '1.6',
@@ -146,11 +210,12 @@ const MessageArea = ({ selectedGroupId }) => {
                                         textAlign: 'right',
                                         color: '#353535',
                                         marginTop: 12,
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'flex-end',
                                         gap: 8,
+                                        flexWrap: 'wrap', // ✅ ensures responsive alignment for date/time
                                     }}
                                 >
                                     <span>
@@ -182,6 +247,7 @@ const MessageArea = ({ selectedGroupId }) => {
                             </div>
                         ))}
                     </div>
+
 
 
                     <div style={{ height: 140, padding: 16, background: '#001F8B' }}>
