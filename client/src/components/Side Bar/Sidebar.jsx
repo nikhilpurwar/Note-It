@@ -72,12 +72,12 @@ const Sidebar = ({ onSelectGroup }) => {
           }
       `}
       </style>
-      <div style={{ height: '100vh', position: 'relative', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'end' }}>
-        <header style={{height: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div style={{ height: '100vh', position: 'relative', width: '100%', display: 'flex', flexDirection: 'column' }}>
+        <header style={{ padding: 60, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <h1 style={{ fontSize: 32, fontWeight: 600 }}>Pocket Notes</h1>
         </header>
 
-        <div className='sidebar' style={{ overflowY: 'auto', overflowX: 'hidden',  paddingRight: 8, paddingLeft: 4 }}>
+        <div className='sidebar' style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto', overflowX: 'hidden', paddingRight: 8, paddingLeft: 4 }}>
           {
             groups.map(g => (
               <div
