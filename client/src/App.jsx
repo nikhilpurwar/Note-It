@@ -7,17 +7,14 @@ function App() {
   const [selectedGroup, setSelectedGroup] = useState(localStorage.getItem('noteit_selected_group') || null)
 
   return (
-    <>
-      <div style={{display: 'flex'}}>
-        <aside style={{width: '320px', borderRight: '1px solid #ccc'}}>
-          <Sidebar onSelectGroup={setSelectedGroup} />
-        </aside>
-        <main style={{flex:1}}>
-          <MessageArea selectedGroupId={selectedGroup} />
-        </main>
-      </div>
-
-    </>
+    <div className={`app ${selectedGroup ? 'group-selected' : ''}`}>
+      <aside className="app-sidebar">
+        <Sidebar onSelectGroup={setSelectedGroup} />
+      </aside>
+      <main className="app-main">
+        <MessageArea selectedGroupId={selectedGroup} onBack={() => setSelectedGroup(null)} />
+      </main>
+    </div>
   )
 }
 

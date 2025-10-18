@@ -60,32 +60,33 @@ const CreateGroup = ({ setIsOpen, onCreate }) => {
     return (
         <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50 }}>
             <div onClick={() => setIsOpen(false)} style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)', cursor: 'pointer', zIndex: 10 }} />
-            <div ref={ref} onClick={(e) => e.stopPropagation()} style={{ background: '#fff', padding: 24, borderRadius: 8, width: 520, boxShadow: '0 6px 24px rgba(0,0,0,0.25)', zIndex: 20 }}>
-                <h2 style={{ margin: 0, marginBottom: 18 }}>Create New group</h2>
+            <div ref={ref} onClick={(e) => e.stopPropagation()} style={{ background: '#fff', padding: 30, borderRadius: 6, width: 740, height: 317, boxShadow: '0 6px 24px rgba(0,0,0,0.25)', zIndex: 20 }}>
+                <h2 style={{ fontSize: 29, fontWeight: 500, letterSpacing: '0.035em', margin: 0, marginBottom: 30, marginTop: 10 }}>Create New group</h2>
 
                 {/* Avatar preview */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+                {/* <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
                     <div style={{ width: 56, height: 56, borderRadius: 28, background: color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: 18 }}>{getInitials(name) || '??'}</div>
                     <div style={{ color: '#333' }}>
                         <div style={{ fontWeight: 700 }}>{name || 'Group preview'}</div>
                         <div style={{ fontSize: 12, color: '#666' }}>Choose a name and color for the group</div>
                     </div>
-                </div>
+                </div> */}
 
-                <form onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                        <label style={{ width: '30%', fontWeight: 700 }}>Group Name</label>
-                        <input id="groupName" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter group name" style={{ width: '70%', padding: '8px 12px', borderRadius: 20, border: '1px solid #ddd' }} />
-                    </div>
-                    <div style={{ marginBottom: 12, display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
-                        <label style={{ width: '30%', display: 'block', fontWeight: 700 }}>Choose colour</label>
-                        <div style={{ width: '70%', display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
-                                {COLORS.map(c => (
-                                    <button key={c} type="button" onClick={() => setColor(c)} title={c} style={{ width: 34, height: 34, borderRadius: 17, background: c, border: color === c ? '3px solid #222' : '2px solid rgba(0,0,0,0.08)' }} aria-label={`color-${c}`} />
-                                ))}
-                            </div>
-                            <div
+                <form onSubmit={handleSubmit} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <div>
+                        <div style={{ marginBottom: 30, display: 'flex', alignItems: 'center', justifyContent: 'start', width: '100%' }}>
+                            <label style={{ width: '31%', fontWeight: 700, fontSize: 27, fontWeight: 500, letterSpacing: '0.035em' }}>Group Name</label>
+                            <input id="groupName" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter group name" style={{ width: '65%', height: 51, padding: '0px 20px', borderRadius: 25, border: '2px solid #CCCCCC', fontSize: 23, fontWeight: 500, letterSpacing: '0.035em' }} />
+                        </div>
+                        <div style={{ marginBottom: 30, display: 'flex', justifyContent: 'center', width: '100%', alignItems: 'center', gap: '5%' }}>
+                            <label style={{ width: '30%', display: 'block', fontSize: 27, fontWeight: 500, letterSpacing: '0.035em' }}>Choose colour</label>
+                            <div style={{ width: '65%', display: 'flex', alignItems: 'center', gap: 12 }}>
+                                <div style={{ display: 'flex', gap: 16 }}>
+                                    {COLORS.map(c => (
+                                        <button key={c} type="button" onClick={() => setColor(c)} title={c} style={{ width: 40, height: 40, borderRadius: '50%', background: c, border: color === c ? '3px solid #222' : '2px solid rgba(0,0,0,0.08)' }} aria-label={`color-${c}`} />
+                                    ))}
+                                </div>
+                                {/* <div
                                 style={{
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -153,13 +154,13 @@ const CreateGroup = ({ setIsOpen, onCreate }) => {
                                 >
                                     {color.toUpperCase()}
                                 </div>
-                            </div>
+                            </div> */}
 
+                            </div>
                         </div>
                     </div>
-
-                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                        <button type="submit" style={{ background: '#24008b', color: '#fff', padding: '10px 24px', borderRadius: 8, border: 'none' }}>Create</button>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', cursor: 'pointer' }}>
+                        <button type="submit" style={{ width: 154, height: 38, background: '#24008b', color: '#fff', borderRadius: 11, border: 'none', fontSize: 20, cursor: 'pointer' }}>Create</button>
                     </div>
                 </form>
             </div>

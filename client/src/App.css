@@ -1,0 +1,90 @@
+/* Basic app layout */
+.app{
+	display: flex;
+	min-height: 100vh;
+	overflow-y: hidden;
+}
+
+.app-sidebar{
+	width: 434px;
+	border-right: 1px solid #eee;
+}
+
+.app-main{
+	width: calc(100vw - 434px);
+	flex: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px){
+	.app-sidebar{
+		position: fixed;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: 5;
+		background: #fff;
+		transform: translateX(0);
+	}
+
+	/* when a group is selected we hide the sidebar to show message area */
+	.app.group-selected .app-sidebar{
+		display: none;
+	}
+
+	.app-main{
+		width: 100%;
+	}
+
+	/* Make message area use full viewport height */
+	.app-main > *{
+		height: 100vh;
+	}
+
+	/* Header tweaks for mobile */
+	header{
+		padding: 14px;
+	}
+
+	textarea{
+		font-size: 18px !important;
+	}
+}
+
+/* Small utility tweaks matching screenshots */
+/* .floating-plus{
+	width:64px;
+	height:64px;
+	border-radius:32px;
+	background:#24008b;
+	color:#fff;
+	font-size:36px;
+	border:none;
+} */
+
+/* style for scrollbar */
+::-webkit-scrollbar {
+  width: 12px;                /* width of the vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #D9D9D9;       /* track color */
+  border-radius: 10px;       /* rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* thumb color (white) */
+  border-radius: 10px;
+  border: 2px solid #d9d9d9; /* gives that inset-like effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f5f5f5; /* lighter on hover */
+}
+
+/* For Firefox */
+/* .notesArea, .sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff #d9d9d9;
+} */
