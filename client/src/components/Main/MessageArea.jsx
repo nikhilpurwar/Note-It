@@ -273,8 +273,8 @@ const MessageArea = ({ selectedGroupId, onBack }) => {
                         </div>
 
                         {/* text Area */}
-                        <div style={{ width: '100%', height: '25%', background: '#001F8B', display: 'flex', justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box' }}>
-                            <div style={{ width: '96.7%', height: '80%', position: 'relative', display: 'flex', alignItems: 'center', background: '#FFFFFF', border: '1px solid #CCCCCC', borderRadius: 9 }}>
+                        <div style={{ padding: '0 20px', width: '100%', height: '25%', background: '#001F8B', display: 'flex', justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box' }}>
+                            <div style={{ width: '100%', height: '80%', position: 'relative', display: 'flex', alignItems: 'center', background: '#FFFFFF', border: '1px solid #CCCCCC', borderRadius: 9 }}>
                                 <textarea
                                     value={text}
                                     onChange={(e) => setText(e.target.value)}
