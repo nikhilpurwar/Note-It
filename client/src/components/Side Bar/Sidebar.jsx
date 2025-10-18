@@ -49,37 +49,73 @@ const Sidebar = ({ onSelectGroup }) => {
 
   return (
     <>
-      <div style={{ padding: 28, height: '100vh', position: 'relative', width: '100%' }}>
-        <header>
-          <h1 style={{ fontSize: 32, fontWeight: 700 }}>Pocket Notes</h1>
+      <style>
+        {`
+          .option {
+            height: 98px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 36px;
+            cursor: pointer;
+            border-radius: 16px;
+            background: transparent;
+            transition: background 0.2s ease;
+          }
+
+          .option:hover {
+            background: rgba(47, 47, 47, 0.06);
+          }
+
+          .option.selected {
+            background: rgba(47, 47, 47, 0.17);
+          }
+      `}
+      </style>
+      <div style={{ height: '100vh', position: 'relative', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'end' }}>
+        <header style={{height: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <h1 style={{ fontSize: 32, fontWeight: 600 }}>Pocket Notes</h1>
         </header>
 
-        <div style={{ marginTop: 28 }}>
-          {groups.length === 0 ? (
-            // show vertical empty-state list with spaced circular placeholders and plus button
-            <div style={{ height: '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <h3 style={{ color: 'gray' }}> Make New Note </h3>
-            </div>
-            // <div style={{display:'flex', flexDirection:'column', gap:28, alignItems:'flex-start'}}>
-            //   {Array.from({length:6}).map((_,i)=> (
-            //     <div key={i} style={{display:'flex', alignItems:'center', gap:16}}>
-            //       <div style={{width:64, height:64, borderRadius:32, background:'#e0e0e0'}} />
-            //       <div style={{width:140, height:20, background:'#f0f0f0', borderRadius:6}} />
-            //     </div>
-            //   ))}
-            // </div>
-          ) : (
+        <div className='sidebar' style={{ overflowY: 'auto', overflowX: 'hidden',  paddingRight: 8, paddingLeft: 4 }}>
+          {
             groups.map(g => (
-              <div key={g.id} onClick={() => handleSelect(g)} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 6px', cursor: 'pointer', background: selectedId === g.id ? '#eee' : 'transparent', borderRadius: 8 }}>
-                <div style={{ width: 48, height: 48, borderRadius: 24, background: g.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700 }}>{getInitials(g && g.name ? g.name : 'My Notes')}</div>
-                <div style={{ fontSize: 16 }}>{g.name}</div>
+              <div
+                key={g.id}
+                onClick={() => handleSelect(g)}
+                className={`option ${selectedId === g.id ? 'selected' : ''}`}
+              >
+                <div style={{
+                  width: 68,
+                  height: 68,
+                  borderRadius: '50%',
+                  background: g.color,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  fontSize: 24.12,
+                  fontWeight: 500,
+                  lineHeight: 24,
+                  letterSpacing: '0.02em'
+                }}>
+                  {getInitials(g?.name || 'My Notes')}
+                </div>
+                <div style={{
+                  color: 'black',
+                  fontSize: 24,
+                  fontWeight: 500,
+                  letterSpacing: '0.02em'
+                }}>
+                  {g.name}
+                </div>
               </div>
             ))
-          )}
+          }
         </div>
 
         <div style={{ position: 'absolute', right: 24, bottom: 24 }}>
-          <button onClick={() => setIsOpen(true)} style={{ width: 64, height: 64, borderRadius: 32, background: '#24008b', color: '#fff', fontSize: 36, border: 'none' }}>+</button>
+          <button onClick={() => setIsOpen(true)} style={{ width: 90, height: 90, borderRadius: '50%', background: '#24008b', color: '#fff', fontSize: 70, border: 'none' }}>+</button>
         </div>
 
         {isOpen && (<CreateGroup setIsOpen={setIsOpen} onCreate={handleCreate} />)}
@@ -89,3 +125,5 @@ const Sidebar = ({ onSelectGroup }) => {
 }
 
 export default Sidebar
+
+
