@@ -70,10 +70,21 @@ const Sidebar = ({ onSelectGroup }) => {
           .option.selected {
             background: rgba(47, 47, 47, 0.17);
           }
+
+          @media (max-width: 720px) {
+            .option{
+              padding: 20px
+            }
+              .floating-plus{
+                height: 75px;
+                width: 75px;
+                font-size: 40px;
+              }
+          }
       `}
       </style>
       <div style={{ height: '100vh', position: 'relative', width: '100%', display: 'flex', flexDirection: 'column' }}>
-        <header style={{ padding: 60, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <header className='pocketNotes' style={{ padding: '24px 12px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <h1 style={{ fontSize: 32, fontWeight: 600 }}>Pocket Notes</h1>
         </header>
 
@@ -115,7 +126,7 @@ const Sidebar = ({ onSelectGroup }) => {
         </div>
 
         <div style={{ position: 'absolute', right: 24, bottom: 24 }}>
-          <button onClick={() => setIsOpen(true)} style={{ width: 90, height: 90, borderRadius: '50%', background: '#24008b', color: '#fff', fontSize: 70, border: 'none' }}>+</button>
+          <button className='floating-plus' onClick={() => setIsOpen(true)}>+</button>
         </div>
 
         {isOpen && (<CreateGroup setIsOpen={setIsOpen} onCreate={handleCreate} />)}
