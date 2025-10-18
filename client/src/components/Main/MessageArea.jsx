@@ -172,7 +172,7 @@ const MessageArea = ({ selectedGroupId, onBack }) => {
                         <header className="message-header" style={{ width: '100%', height: '12%', background: '#001F8B', color: '#fff', padding: 16, display: 'flex', alignItems: 'center', gap: 12, overflow: 'hidden' }}>
                             {/* mobile back button - shown only when onBack provided */}
                             {onBack && (
-                                <button onClick={onBack} aria-label="Back" style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: 26, marginRight: 6, display: 'none' }} className="mobile-back">←</button>
+                                <button onClick={onBack} aria-label="Back" style={{ background: 'transparent', border: 'none', color: '#fff', fontSize: 26, marginRight: 6 }} className="mobile-back">←</button>
                             )}
 
                             <div style={{ width: 68, height: 68, borderRadius: '50%', background: (group && group.color) || '#0b53ff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 500, fontSize: 24, lineHeight: '28px', letterSpacing: '0.02em', color: '#FFFFFF' }}>{getInitials(group && group.name ? group.name : 'My Notes')}</div>

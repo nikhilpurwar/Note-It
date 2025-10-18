@@ -1,23 +1,23 @@
 /* Basic app layout */
-.app{
+.app {
 	display: flex;
 	min-height: 100vh;
 	overflow-y: hidden;
 }
 
-.app-sidebar{
+.app-sidebar {
 	width: 434px;
 	border-right: 1px solid #eee;
 }
 
-.app-main{
+.app-main {
 	width: calc(100vw - 434px);
 	flex: 1;
 }
 
 /* Mobile adjustments */
-@media (max-width: 720px){
-	.app-sidebar{
+@media (max-width: 720px) {
+	.app-sidebar {
 		position: fixed;
 		left: 0;
 		top: 0;
@@ -29,58 +29,139 @@
 	}
 
 	/* when a group is selected we hide the sidebar to show message area */
-	.app.group-selected .app-sidebar{
+	.app.group-selected .app-sidebar {
 		display: none;
 	}
 
-	.app-main{
+	.app-main {
 		width: 100%;
 	}
 
 	/* Make message area use full viewport height */
-	.app-main > *{
+	.app-main>* {
 		height: 100vh;
 	}
 
 	/* Header tweaks for mobile */
-	header{
+	header {
 		padding: 14px;
 	}
 
-	textarea{
+	textarea {
 		font-size: 18px !important;
 	}
+
+	.pocketNotes {
+		padding: 20px 12px
+	}	
 }
 
 /* Small utility tweaks matching screenshots */
-/* .floating-plus{
-	width:64px;
-	height:64px;
-	border-radius:32px;
-	background:#24008b;
-	color:#fff;
-	font-size:36px;
-	border:none;
-} */
+
+.floating-plus {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background: #24008b;
+	color: #fff;
+	font-size: 56px;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* header and avatar */
+.message-header {
+	box-sizing: border-box;
+}
+
+.message-header .mobile-back {
+	display: none
+}
+
+.avatar-circle {
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	font-weight: 500;
+	font-size: 24px;
+	color: #fff
+}
+
+/* composer */
+.composer {
+	padding: 12px 0
+}
+
+.composer-inner {
+	height: 72px
+}
+
+.composer-textarea {
+	height: 100%;
+	resize: none
+}
+
+@media (max-width: 720px) {
+	.message-header {
+		padding: 12px
+	}
+
+	.message-header .mobile-back {
+		display: inline-block;
+		margin-right: 8px
+	}
+
+	.avatar-circle {
+		width: 56px;
+		height: 56px;
+		font-size: 20px
+	}
+
+	.avatar-circle,
+	.message-header h3 {
+		vertical-align: middle
+	}
+
+	.notesArea {
+		padding: 12px
+	}
+
+	.composer-inner {
+		height: 64px;
+		border-radius: 10px
+	}
+
+	.composer-textarea {
+		font-size: 18px
+	}
+}
 
 /* style for scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;                /* width of the vertical scrollbar */
+	width: 12px;
+	/* width of the vertical scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: #D9D9D9;       /* track color */
-  border-radius: 10px;       /* rounded corners */
+	background: #D9D9D9;
+	/* track color */
+	border-radius: 10px;
+	/* rounded corners */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffffff; /* thumb color (white) */
-  border-radius: 10px;
-  border: 2px solid #d9d9d9; /* gives that inset-like effect */
+	background-color: #ffffff;
+	/* thumb color (white) */
+	border-radius: 10px;
+	border: 2px solid #d9d9d9;
+	/* gives that inset-like effect */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #f5f5f5; /* lighter on hover */
+	background-color: #f5f5f5;
+	/* lighter on hover */
 }
 
 /* For Firefox */
@@ -88,3 +169,18 @@
   scrollbar-width: thin;
   scrollbar-color: #ffffff #d9d9d9;
 } */
+
+/* CreateGroup modal responsiveness */
+.create-modal{ width: min(90vw, 740px); max-width: 90vw; border-radius: 12px }
+.cg-row{ display:block }
+.cg-field{ width:100% }
+.cg-label{ margin-right: 12px }
+.cg-input{ width: 100% }
+.cg-colors{ width: 100% }
+.color-btn{ width: 36px; height: 36px }
+.cg-submit{ width: 100%; max-width: 360px }
+
+@media (min-width: 721px){
+	.create-modal{ width: 740px }
+	.cg-field{ display:flex }
+}

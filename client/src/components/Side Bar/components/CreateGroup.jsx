@@ -60,8 +60,8 @@ const CreateGroup = ({ setIsOpen, onCreate }) => {
     return (
         <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50 }}>
             <div onClick={() => setIsOpen(false)} style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)', cursor: 'pointer', zIndex: 10 }} />
-            <div ref={ref} onClick={(e) => e.stopPropagation()} style={{ background: '#fff', padding: 30, borderRadius: 6, width: 740, height: 317, boxShadow: '0 6px 24px rgba(0,0,0,0.25)', zIndex: 20 }}>
-                <h2 style={{ fontSize: 29, fontWeight: 500, letterSpacing: '0.035em', margin: 0, marginBottom: 30, marginTop: 10 }}>Create New group</h2>
+            <div ref={ref} onClick={(e) => e.stopPropagation()} className="create-modal" style={{ background: '#fff', padding: 30, borderRadius: 12, boxShadow: '0 6px 24px rgba(0,0,0,0.25)', zIndex: 20 }}>
+                <h2 style={{ fontSize: 29, fontWeight: 500, letterSpacing: '0.035em', margin: 0, marginBottom: 18, marginTop: 6 }}>Create New group</h2>
 
                 {/* Avatar preview */}
                 {/* <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
@@ -72,95 +72,26 @@ const CreateGroup = ({ setIsOpen, onCreate }) => {
                     </div>
                 </div> */}
 
-                <form onSubmit={handleSubmit} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <div>
-                        <div style={{ marginBottom: 30, display: 'flex', alignItems: 'center', justifyContent: 'start', width: '100%' }}>
-                            <label style={{ width: '31%', fontWeight: 700, fontSize: 27, fontWeight: 500, letterSpacing: '0.035em' }}>Group Name</label>
-                            <input id="groupName" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter group name" style={{ width: '65%', height: 51, padding: '0px 20px', borderRadius: 25, border: '2px solid #CCCCCC', fontSize: 23, fontWeight: 500, letterSpacing: '0.035em' }} />
+                <form onSubmit={handleSubmit} className="create-form" style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <div className="cg-row" style={{ width: '100%' }}>
+                        <div className="cg-field" style={{ marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'start', width: '100%' }}>
+                            <label className="cg-label" style={{ width: '30%', fontWeight: 600, fontSize: 20, letterSpacing: '0.02em' }}>Group Name</label>
+                            <input className="cg-input" id="groupName" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter group name" style={{ width: '65%', height: 44, padding: '0px 16px', borderRadius: 22, border: '2px solid #CCCCCC', fontSize: 18 }} />
                         </div>
-                        <div style={{ marginBottom: 30, display: 'flex', justifyContent: 'center', width: '100%', alignItems: 'center', gap: '5%' }}>
-                            <label style={{ width: '30%', display: 'block', fontSize: 27, fontWeight: 500, letterSpacing: '0.035em' }}>Choose colour</label>
-                            <div style={{ width: '65%', display: 'flex', alignItems: 'center', gap: 12 }}>
-                                <div style={{ display: 'flex', gap: 16 }}>
+                        <div className="cg-field" style={{ marginBottom: 18, display: 'flex', justifyContent: 'center', width: '100%', alignItems: 'center', gap: '4%' }}>
+                            <label className="cg-label" style={{ width: '30%', display: 'block', fontSize: 20, fontWeight: 600, letterSpacing: '0.02em' }}>Choose colour</label>
+                            <div className="cg-colors" style={{ width: '65%', display: 'flex', alignItems: 'center', gap: 12 }}>
+                                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                                     {COLORS.map(c => (
-                                        <button key={c} type="button" onClick={() => setColor(c)} title={c} style={{ width: 40, height: 40, borderRadius: '50%', background: c, border: color === c ? '3px solid #222' : '2px solid rgba(0,0,0,0.08)' }} aria-label={`color-${c}`} />
+                                        <button key={c} type="button" onClick={() => setColor(c)} title={c} className="color-btn" style={{ width: 40, height: 40, borderRadius: '50%', background: c, border: color === c ? '3px solid #222' : '2px solid rgba(0,0,0,0.08)' }} aria-label={`color-${c}`} />
                                     ))}
-                                </div>
-                                {/* <div
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    gap: 8,
-                                    marginLeft: 12,
-                                    padding: 10,
-                                    borderRadius: 10,
-                                    backgroundColor: '#eff0f1ff',
-                                    boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
-                                    transition: 'all 0.3s ease',
-                                    cursor: 'pointer',
-                                }}
-                            >
-                                <label
-                                    htmlFor="custom-color"
-                                    style={{
-                                        fontSize: 14,
-                                        color: '#333',
-                                        fontWeight: 500,
-                                        marginBottom: 4,
-                                    }}
-                                >
-                                    Pick a color
-                                </label>
-
-                                <input
-                                    id="custom-color"
-                                    aria-label="custom-color"
-                                    type="color"
-                                    value={color}
-                                    onChange={(e) => setColor(e.target.value)}
-                                    style={{
-                                        width: 42,
-                                        height: 42,
-                                        borderRadius: '50%',
-                                        border: '2px solid #ddd',
-                                        background: 'transparent',
-                                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                        cursor: 'pointer',
-                                        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                                    }}
-                                    onMouseOver={(e) => {
-                                        e.target.style.transform = 'scale(1.1)';
-                                        e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
-                                    }}
-                                    onMouseOut={(e) => {
-                                        e.target.style.transform = 'scale(1)';
-                                        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-                                    }}
-                                />
-
-                                <div
-                                    style={{
-                                        fontSize: 13,
-                                        color: '#555',
-                                        backgroundColor: '#fff',
-                                        border: '1px solid #e0e0e0',
-                                        borderRadius: 6,
-                                        padding: '3px 8px',
-                                        marginTop: 6,
-                                        boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
-                                        fontFamily: 'monospace',
-                                    }}
-                                >
-                                    {color.toUpperCase()}
-                                </div>
-                            </div> */}
-
+                                </div>                           
                             </div>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', cursor: 'pointer' }}>
-                        <button type="submit" style={{ width: 154, height: 38, background: '#24008b', color: '#fff', borderRadius: 11, border: 'none', fontSize: 20, cursor: 'pointer' }}>Create</button>
+
+                    <div style={{ display: 'flex', justifyContent: 'flex-end', cursor: 'pointer', marginTop: 6 }}>
+                        <button type="submit" className="cg-submit" style={{ width: 160, height: 44, background: '#24008b', color: '#fff', borderRadius: 10, border: 'none', fontSize: 18, cursor: 'pointer' }}>Create</button>
                     </div>
                 </form>
             </div>
