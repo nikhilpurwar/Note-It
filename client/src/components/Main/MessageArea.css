@@ -1,0 +1,278 @@
+.message-area-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* --- SPLASH / EMPTY STATE --- */
+.splash-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e3eefb;
+    height: 100vh;
+    padding: 40px 20px;
+}
+
+.splash-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    text-align: center;
+    /* position: relative; */
+}
+
+.splash-image {
+    width: 626px;
+    height: 313px;
+    margin-bottom: 32px;
+}
+
+.splash-title {
+    font-size: 50px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.splash-description {
+    color: #292929;
+    font-size: 22px;
+    font-weight: 500px;
+    line-height: 32px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.splash-footer {
+    position: absolute;
+    bottom: 24px;
+    color: #292929;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- MESSAGE AREA --- */
+.message-main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+.message-header {
+    width: 100%;
+    height: 12%;
+    background: #001f8b;
+    color: #fff;
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.mobile-back {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.group-avatar {
+    width: 68.9px;
+    height: 68.9px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 24px;
+    color: #fff;
+}
+
+.group-name{
+    margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    color: white;
+}
+
+/* Notes list */
+.notes-area {
+    flex: 1;
+    padding: 20px;
+    background: #dae5f5;
+    overflow-y: auto;
+    word-wrap: break-word;
+    height: calc(88% - 255px);
+}
+
+.note-card {
+    background: #fff;
+    padding: 20px 40px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    margin-bottom: 16px;
+    overflow-wrap: break-word;
+}
+
+.note-content {
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.note-footer {
+    text-align: right;
+    color: #353535;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.note-footer .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #353535;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* --- INPUT AREA --- */
+.input-container {
+    padding: 0 20px;
+    width: 100%;
+    height: 255px;
+    background: #001f8b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box {
+    width: 100%;
+    height: 211px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+}
+
+.input-box textarea {
+    flex: 1;
+    padding: 24px;
+    border-radius: 8px;
+    height: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    font-size: 29.82px;
+    color: #9a9a9a;
+    letter-spacing: 0.02em;
+}
+
+.send-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: default;
+}
+
+.send-btn.active {
+    cursor: pointer;
+}
+
+.send-btn svg path {
+    fill: #ababab;
+}
+
+.send-btn.active svg path {
+    fill: #001f8b;
+}
+
+@media (max-width: 720px) {
+    .message-header {
+        height: 66px;
+        padding: 16px 20px;
+        gap: 12px;
+    }
+
+    .group-avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+        margin-right: 6px;
+    }
+
+    .group-name {
+        font-size: 16px;
+        color: white;
+    }
+
+    /* Notes list */
+    .notes-area {
+        height: calc(88% - 255px);
+    }
+
+    .note-card {
+        /* max-height: 328px; */
+        margin-bottom: 16px;
+    }
+
+    .note-content {
+        font-size: 16px;
+        /* max-height: 304.61px; */
+    }
+
+    .note-footer {
+        margin-top: 20px;
+        font-size: 13.59px;
+        font-weight: 300px;
+        gap: 16px;
+    }
+
+    .note-footer .dot {
+        width: 4px;
+        height: 4px;
+    }
+
+    .input-container {
+        padding: 0 14px;
+        width: 100%;
+        height: 130px;
+        background: #001f8b;
+    }
+
+    .input-box {
+        width: 100%;
+        height: 102px;
+    }
+
+    .input-box textarea {
+        padding: 16px;
+        font-size: 29.82px;
+    }
+}

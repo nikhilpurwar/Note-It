@@ -1,0 +1,210 @@
+/* --- Overlay --- */
+.cg-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+/* --- Backdrop --- */
+.cg-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* --- Modal --- */
+.create-modal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+    width: 740px;
+    height: 317px;
+    /* max-width: 500px; */
+    animation: scaleIn 0.2s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Title --- */
+.cg-title {
+    font-size: 29px;
+    font-weight: 500;
+    letter-spacing: 0.035em;
+    margin: 6px 0 18px;
+    text-align: left;
+}
+
+/* --- Form --- */
+.create-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cg-field {
+    margin-top: 12px;
+}
+
+/* --- Form Fields --- */
+.cg-field {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.cg-label {
+    width: 30%;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+}
+
+.cg-input {
+    width: 65%;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 22px;
+    border: 2px solid #cccccc;
+    font-size: 18px;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+.cg-input:focus {
+    border-color: #24008b;
+}
+
+/* --- Colors --- */
+.color-row {
+    justify-content: center;
+    gap: 4%;
+}
+
+.cg-colors {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.color-btn.active {
+    border: 3px solid #222;
+    transform: scale(1.1);
+}
+
+.color-btn:hover {
+    transform: scale(1.15);
+}
+
+/* --- Actions --- */
+.cg-actions {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.cg-submit {
+    width: 160px;
+    height: 44px;
+    background: #24008b;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cg-submit:hover {
+    background: #3410b5;
+    transform: translateY(-2px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 720px) {
+    .create-modal {
+        width: 284px;
+        height: 211px;
+        padding: 20px;
+    }
+
+    .cg-title {
+        font-size: 18.4px;
+        text-align: start;
+    }
+
+    /* --- Form --- */
+    .create-form {
+        gap: 10px;
+    }
+
+    .cg-field {
+        margin-top: 4px;
+    }
+
+    .cg-label-1 {
+        width: 34%;
+        font-size: 12.6px;
+    }
+
+    .cg-label,
+    .cg-label-2 {
+        width: 48%;
+        font-size: 12.6px;
+    }
+
+    .cg-colors {
+        gap: 4px;
+    }
+
+    .cg-input {
+        height: 23px;
+        font-size: 12px;
+    }
+
+    .color-btn {
+        width: 17.67px;
+        height: 17.67px;
+    }
+
+    .cg-actions {
+        justify-content: center;
+    }
+
+    .cg-submit {
+        width: 186px;
+        height: 32px;
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,149 @@
+/* ---- CONTAINER ---- */
+.sidebar-container {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- HEADER ---- */
+.pocketNotes {
+    padding: 64px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pocketNotes h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* ---- SIDEBAR LIST ---- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+    padding-left: 4px;
+}
+
+/* ---- GROUP ITEM ---- */
+.option {
+    height: 98px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 36px;
+    cursor: pointer;
+    border-radius: 16px;
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+.option:hover {
+    background: rgba(47, 47, 47, 0.06);
+}
+
+.option.selected {
+    background: rgba(47, 47, 47, 0.17);
+}
+
+/* ---- AVATAR ---- */
+.group-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24.12px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+}
+
+/* ---- GROUP NAME ---- */
+.group-name {
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ---- FLOATING ADD BUTTON ---- */
+.floating-btn-container {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+}
+
+.floating-plus {
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+    background-color: #001f8b;
+    color: white;
+    font-size: 48px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.floating-plus:hover {
+    background-color: #0033cc;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 720px) {
+
+    .sidebar {
+        padding: 0 8px;
+    }
+
+    .pocketNotes {
+        padding: 40px 0 20px 30px;
+        justify-content: start;
+    }
+
+    .pocketNotes>h1 {
+        font-size: 31.5px;
+    }
+
+    /* ---- AVATAR ---- */
+    .group-avatar {
+        width: 62.01px;
+        height: 62.01px;
+        font-size: 20px;
+    }
+
+    /* ---- GROUP NAME ---- */
+    .group-name {
+        font-size: 18px;
+    }
+
+    .option {
+        padding: 20px;
+    }
+
+    .floating-plus {
+        height: 75px;
+        width: 75px;
+        font-size: 40px;
+    }
+
+    .group-name {
+        font-size: 20px;
+    }
+
+    .pocketNotes h1 {
+        font-size: 26px;
+    }
+}
