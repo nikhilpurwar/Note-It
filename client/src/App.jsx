@@ -4,7 +4,7 @@ import Sidebar from './components/Side Bar/Sidebar';
 import { useState } from 'react'
 
 function App() {
-  const [selectedGroup, setSelectedGroup] = useState(localStorage.getItem('noteit_selected_group') || null)
+  const [selectedGroup, setSelectedGroup] = useState(null)
 
   return (
     <div className={`app ${selectedGroup ? 'group-selected' : ''}`}>
