@@ -14,12 +14,12 @@ const loadGroups = () => {
   }
 }
 
-const saveSelected = (id) => localStorage.setItem(SELECTED_GROUP_KEY, id || '')
+// const saveSelected = (id) => localStorage.setItem(SELECTED_GROUP_KEY, id || '')
 
 const Sidebar = ({ onSelectGroup }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [groups, setGroups] = useState([])
-  const [selectedId, setSelectedId] = useState(localStorage.getItem(SELECTED_GROUP_KEY) || null)
+  const [selectedId, setSelectedId] = useState(null)
 
   useEffect(() => {
     setGroups(loadGroups())
@@ -29,13 +29,13 @@ const Sidebar = ({ onSelectGroup }) => {
     const updated = [newGroup, ...groups]
     setGroups(updated)
     setSelectedId(newGroup.id)
-    saveSelected(newGroup.id)
+    // saveSelected(newGroup.id)
     onSelectGroup && onSelectGroup(newGroup.id)
   }
 
   const handleSelect = (g) => {
     setSelectedId(g.id)
-    saveSelected(g.id)
+    // saveSelected(g.id)
     onSelectGroup && onSelectGroup(g.id)
   }
 
