@@ -69,7 +69,7 @@
 /* Header */
 .message-header {
     width: 100%;
-    height: 12%;
+    height: 98px;
     background: #001f8b;
     color: #fff;
     padding: 16px 30px;
@@ -114,7 +114,7 @@
     background: #dae5f5;
     overflow-y: auto;
     word-wrap: break-word;
-    height: calc(88% - 255px);
+    height: calc(100% - 363px);
 }
 
 .note-card {
@@ -216,25 +216,26 @@
 @media (max-width: 720px) {
     .message-header {
         height: 66px;
-        padding: 16px 20px;
+        padding: 0px 20px;
         gap: 12px;
     }
 
     .group-avatar {
-        width: 48px;
-        height: 48px;
-        font-size: 16px;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 16px !important;
+        padding: 0;
         margin-right: 6px;
     }
 
     .group-name {
-        font-size: 16px;
+        font-size: 16px !important;
         color: white;
     }
 
     /* Notes list */
     .notes-area {
-        height: calc(88% - 255px);
+        height: calc(100vh - 196px);
     }
 
     .note-card {
